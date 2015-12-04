@@ -6,16 +6,13 @@ deploy:
     tags: true
   distributions: sdist bdist_wheel
   password:
-    secure: K6/OkCdxj2UKIkl54zXRM9ZgN0329/j6EN+Sky1ytU+9H7VWTQ4tkog4ZBdcZJ7jlQwxTZA+zfFm7HsRuH2Dz1EQTlW3dtkWUkqr7c7BK83ZbHz9mODJkhQPx6ulfzz6dUzGJBHCHCXdqvUYCPrr7xYxEgXFstILc62fUahBMYT8aGwBsc7uIEn0ZWvEofWOFxglwLk5KZ9PI9SN1jOC6ykCTyCnI2WGgkhfvpDWeFRtCji9oP+I8UiV5xd7qBgE910F3p19y1YlZ4AIQrGY7+yTKrf7xleI1gRRf8oQLA4Cw+pH7Ygeu/xgVpVy4yKhDceP407uGRFA6jhyjTla/zENh5csSRGjkuLUYlfLHLUpWbwrLxMLLf0ny9m3X1STROfle2MyLI7ENsigtHL0gKRBHvAB6XThUv6IcaET9lm1P2KMRvvFrDszEzjnol9Bbb9lCW/6vsivUxwBMCea0Qr9CyoFy333OZZdZtClWm/6PyChRD5IlTWX9HCIwedDNi+vOQjXxkALWG2xtd62SitDU7Mhl+uPhOvnUbi/fLksVUanRa0CU/ZjIOeYyIHZlGMEu+UKD99AFBhrMaGK52BsI3fHAbw61QhX3QY2YURlAmSGosJx/viLP2TBTKOM9lYiHHiz9E6rdwA8fN5/2+wDQpgKMMIvH+RlwmUpX8k=
+    secure: Bbs2PjMi5cf6gVKxwh7ACxgMdzaVJIQxnrVjcZPm25N8elSzwQYlIZ7PSWiEWxt0y/ruSIm5uoJPuFnL3EcUxNn34Bsd1Z2yBVNrUObKb3wAmzc6hjU/FaMiRUrHQ6LH2HFfP73KY7rT+wi3MXYuCbif2M3viTwJycYYmRmVhO1VPxrBNPAwZwK51ol2gAk3+QW+fq8A/DsGZnMIebgv33/gPXcOKyRgsuzxwYf8vz7tj8EKETp3fwqYrjQfsEdz46CCKEpTiorJOqTqxDq9VYbBUjGyPGQzzD60Gnskc7otTLW9F54bctDpg/yF0+wkI28NJ/IqAd2YZ4thL5c9Js3ydMjcRBmF4fSqRpoxMpNJhwISK7EgReziO+2/50Hs9zicqOrnyvIHMCrixgbTJeWZJUr1loJyU7bugc99xi0y9a302EorFL4bnsnpGIAGUXyVQielg19pOdjt1t3byG9GU9zvA/5NJIjSEo+leyZWdyVKkyxEpb8gc27qHKoUAyY3XO5gr1/A4KnhVDBH9riYZD/eBd6wQxBzOh2Wi++FBcNu8SdNBXAhm2NQLIEAvTimtfs3drNaM/Ihgwn1k3LCWapb0ZtQBxKH3gKKJYk2ZWAwI6QCSHLT9NNcocKHksSPxC7kNFf4gBo1HRNZnQyG7Ib2ckrbAtdlo8izZ24=
   provider: pypi
   user: ydfang
 env:
-#- TOXENV=py35
-#- TOXENV=py34
-#- TOXENV=py33
 - TOXENV=py27
-#- TOXENV=py26
-#- TOXENV=pypy
-install: pip install -U tox
+#install: pip install -U tox
+install: pip install -r requirements_dev.txt --use-mirrors
+install: pip install distribute
 language: python
 script: make test
