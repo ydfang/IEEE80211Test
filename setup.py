@@ -8,6 +8,18 @@ except ImportError:
     from distutils.core import setup
 
 from setuptools.command.test import test as TestCommand
+import sys
+
+class Tox(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+    def run_tests(self):
+        #import here, cause outside the eggs aren't loaded
+        import tox
+        errcode = tox.cmdline(self.test_args)
+        sys.exit(errcode)
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -20,7 +32,7 @@ requirements = [
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
+    # TODO: put package requirements here
 ]
 
 class PyTest(TestCommand):
@@ -66,5 +78,6 @@ setup(
         'Programming Language :: Python :: 3.4',
     ],
     test_suite='tests',
-    tests_require=test_requirements
+    tests_require=test_requirements,
+#    cmdclass = {'test': Tox}
 )
