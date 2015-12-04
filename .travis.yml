@@ -18,4 +18,4 @@ env:
 #- TOXENV=pypy
 install: pip install -U tox
 language: python
-script: tox
+script: nosetests
