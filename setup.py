@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
+from __future__ import print_function
 try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
 
+from setuptools.command.test import test as TestCommand
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -22,9 +23,21 @@ test_requirements = [
     # TODO: put package test requirements here
 ]
 
+class PyTest(TestCommand):
+    def finalize_options(self):
+        TestCommand.finalize_options(self)
+        self.test_args = []
+        self.test_suite = True
+
+    def run_tests(self):
+        import pytest
+        errcode = pytest.main(self.test_args)
+        sys.exit(errcode)
+
+import IEEE80211Test
 setup(
     name='IEEE80211Test',
-    version='0.1.0',
+    version=IEEE80211Test.__version__,
     description="Test 802.11 performance using Python",
     long_description=readme + '\n\n' + history,
     author="Ydfang",

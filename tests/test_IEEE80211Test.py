@@ -21,9 +21,9 @@ class TestIeee80211test(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_000_something(self):
-        pass
-
+    def test_000_fib(self):
+        assert(55 == IEEE80211Test.fib(10))
+        assert(1 == IEEE80211Test.fib(1))
 
 if __name__ == '__main__':
     import sys
