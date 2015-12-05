@@ -7,19 +7,6 @@ try:
 except ImportError:
     from distutils.core import setup
 
-from setuptools.command.test import test as TestCommand
-import sys
-
-class Tox(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
-    def run_tests(self):
-        #import here, cause outside the eggs aren't loaded
-        import tox
-        errcode = tox.cmdline(self.test_args)
-        sys.exit(errcode)
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -32,24 +19,13 @@ requirements = [
 ]
 
 test_requirements = [
-    # TODO: put package requirements here
+    # TODO: put package test requirements here
 ]
 
-class PyTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = []
-        self.test_suite = True
 
-    def run_tests(self):
-        import pytest
-        errcode = pytest.main(self.test_args)
-        sys.exit(errcode)
-
-import IEEE80211Test
 setup(
     name='IEEE80211Test',
-    version=IEEE80211Test.__version__,
+    version='0.1.0',
     description="Test 802.11 performance using Python",
     long_description=readme + '\n\n' + history,
     author="Ydfang",
@@ -59,7 +35,7 @@ setup(
         'IEEE80211Test',
     ],
     package_dir={'IEEE80211Test':
-                 'IEEE80211Test'},
+                 'tests'},
     include_package_data=True,
     install_requires=requirements,
     license="ISCL",
@@ -74,10 +50,8 @@ setup(
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
     ],
-    test_suite='tests',
+    test_suite='tests.test_IEEE80211Test',
     tests_require=test_requirements,
-#    cmdclass = {'test': Tox}
 )

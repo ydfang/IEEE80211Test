@@ -5,13 +5,13 @@
 Implement Fib
 '''
 
-from decorators import trace
+from decorators import dump_args
 
-@trace
+@dump_args
 def fib(n):
     return (n in (0, 1) and [n] or [fib(n - 1) + fib(n - 2)])[0]
 
 
 if __name__ == '__main__':
     import sys
-    print(fib(10))
+    print(fib(5))

@@ -16,4 +16,4 @@ env:
 install: "pip install -r requirements_dev.txt"
 install: "pip install distribute"
 
-script: python setup.py test
+script: make test
