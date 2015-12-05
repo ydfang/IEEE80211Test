@@ -8,9 +8,12 @@ IEEE80211Test
 .. image:: https://img.shields.io/travis/ydfang/IEEE80211Test.svg
         :target: https://travis-ci.org/ydfang/IEEE80211Test
 
-.. image:: https://readthedocs.org/projects/IEEE80211Test/badge/?version=latest
-        :target: https://readthedocs.org/projects/IEEE80211Test/?badge=latest
-        :alt: Documentation Status
+.. image:: https://readthedocs.org/projects/using-python-open-source-tools/badge/?version=latest
+	    :target: http://using-python-open-source-tools.readthedocs.org/en/latest/?badge=latest
+    	:alt: Documentation Status
+                    
+
+
 
 
 Test 802.11 performance using Python
