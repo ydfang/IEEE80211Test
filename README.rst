@@ -9,11 +9,8 @@ IEEE80211Test
         :target: https://travis-ci.org/ydfang/IEEE80211Test
 
 .. image:: https://readthedocs.org/projects/using-python-open-source-tools/badge/?version=latest
-	    :target: http://using-python-open-source-tools.readthedocs.org/en/latest/?badge=latest
-    	:alt: Documentation Status
-                    
-
-
+        :target: https://readthedocs.org/projects/using-python-open-source-tools/?badge=latest
+        :alt: Documentation Status
 
 
 Test 802.11 performance using Python
